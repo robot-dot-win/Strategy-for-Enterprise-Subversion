@@ -1,0 +1,14 @@
+# Environment config for /usr/lib/systemd/system/svnserve.service.
+#
+# CentOS Stream 9, 8G RAM, svnserve v1.14.1
+#
+# Copyright(C) 2024, Martin Young <martin_young@live.cn>
+#-----------------------------------------------------------------
+
+OPTIONS="\
+    --root=/var/svn \
+    --log-file=/var/log/svn.log \
+    --memory-cache-size 512 \
+    --compression 6 \
+    --block-read yes \
+"

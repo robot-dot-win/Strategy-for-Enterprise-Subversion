@@ -1,0 +1,32 @@
+# PAM configuration for authenticating against an SMTP server.
+#
+# pam_usermatch module: https://github.com/robot-dot-win/pam_usermatch
+# pam_smtp module:      https://github.com/robot-dot-win/pam_smtp
+#
+# Copyright(C) 2024, Martin Young <martin_young@live.cn>
+#-------------------------------------------------------------------------------------
+
+# For some SMTP servers `username` is non-case-sensitive and acceptive both with or
+# without a domain name. To make `username` exclusive for the service, limits must be
+# set.
+# E.g. this rule requires that `username` can contains only a-z, 0-9, underscores, dots and
+# hyphens, and its length must be 3 to 30:
+auth requisite pam_usermatch.so [^[a-z0-9_\.-\]{3,30}$] allow
+
+# If necessary `username` can be filtered by some special strings.
+# E.g. this rule requires that `username` can not contain strings `list`, `admin`, `master'
+# and `reply`:
+#auth requisite pam_usermatch.so .*(list|admin|master|reply).* deny
+
+# If necessary a blacklist can be used:
+#auth requisite pam_listfile.so onerr=fail item=user sense=deny file=<path-to-blacklist-file>
+
+# If users are regular or in a small scale, they can be listed in a whitelist, thus all
+# the above rules can be omitted:
+#auth requisite pam_listfile.so onerr=fail item=user sense=allow file=<path-to-whitelist-file>
+
+# After all the above rules, now authenticating against the SMTP server. E.g.
+auth requisite pam_smtp.so smtp.foobar.com:465 tls @foobar.com
+
+# Account management:
+account	required pam_permit.so

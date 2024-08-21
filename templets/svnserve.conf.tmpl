@@ -1,0 +1,36 @@
+# Universal configuration templet file for svnserve repositories.
+#
+# </path-to-repo>/conf/svnserve.conf
+#
+# Copyright(C) 2024, Martin Young <martin_young@live.cn>
+#-----------------------------------------------------------------
+
+[general]
+
+# Anonymous users have no access:
+anon-access = none
+
+# Authenticated users have read and write access:
+auth-access = write
+
+# Authentication realm:
+# -------------------------
+# All repositories that share the same authentication center should
+# use the same realm, e.g. svn.foobar.com.
+realm = svn.foobar.com
+
+# Group and authorization definition files:
+# --------------------------------------------
+#groups-db = file://</path-to-admin-repo>/<repos-name>/groups.txt
+#authz-db  = file://</path-to-admin-repo>/<repos-name>/authz.txt
+#
+# They are located in the admin repo, under the directory named its
+# repo name. E.g. suppose the admin repo path is `/var/svn/admin`
+# and this repo is `teamb`, then:
+groups-db = file:///var/svn/admin/teamb/groups.txt
+authz-db  = file:///var/svn/admin/teamb/authz.txt
+
+[sasl]
+
+# use the Cyrus SASL library for authentication:
+use-sasl = true

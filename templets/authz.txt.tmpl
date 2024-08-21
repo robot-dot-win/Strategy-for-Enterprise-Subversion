@@ -1,0 +1,28 @@
+# Authorization definition templet file for the Authz-repo.
+#
+#   admin - Name of the Authz-repo
+#   teama - Name of the repository of Team A
+#   teamb - Name of the repository of Team B
+#
+# Copyright(C) 2024, Martin Young <martin_young@live.cn>
+#-----------------------------------------------------------------
+
+# SVN Administrators and Auditors have read access to the root:
+[/]
+@Audits = r
+@Admins = r
+
+# SVN Administrators have read and write access to /admin:
+[/admin]
+@Admins = rw
+
+# Every repo-administrator has read and write access to its /<repos-name>,
+# and every repo-auditor has read access:
+
+[/teama]
+@Admins_teama = rw
+@Audits_teama = r
+
+[/teamb]
+@Admins_teamb = rw
+@Audits_teamb = r
