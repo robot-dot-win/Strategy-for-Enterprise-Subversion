@@ -124,7 +124,7 @@ Check out the two templet files `authz.txt.tmpl` and `groups.txt.tmpl`, specifyi
 ```
 
 Now with a Subversion client an SVN Administrator can proceed to all his jobs against `svn://svn.foobar.com/admin/admin/`, and also, a Repository Administrator of `teama` can finish his jobs
-against `svn://svn.foobar.com/admin/tema/`.
+against `svn://svn.foobar.com/admin/teama/`.
 
 ## LICENSE
 This repository is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
