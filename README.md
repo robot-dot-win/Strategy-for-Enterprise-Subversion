@@ -81,8 +81,8 @@ Users write commands and parameters in a "command file" and commit it to the Com
 
 ## EXAMPLE
 The example included in this repository is based on the `svnserve` server, running on CentOS Stream 9. It uses SASL to authenticate users against an SMTP server via the Linux PAM module
-[`pam_smtp`](https://github.com/robot-dot-win/pam_smtp). Note that because the `svnserve` protocol is not encrypted, a secure tunnel(e.g VPN) should have been established if users access the server through
-the wide-open Internet.
+[`pam_smtp`](https://github.com/robot-dot-win/pam_smtp). Note that because the `svnserve` protocol is not encrypted, a secure tunnel(e.g VPN, sslTunnel, Stunnel, etc.) should have been
+established if users access the server through the wide-open Internet.
 
 The following steps should be done by a System Administrator:
 

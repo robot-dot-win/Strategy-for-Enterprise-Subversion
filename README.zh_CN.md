@@ -88,7 +88,7 @@ SVN从1.8.0版开始提供了一个极佳的特性称为["库内授权"](https:/
 本仓库所提供的模板和示例是基于`svnserve`服务实现的，在CentOS Stream 9中运行。
 利用一个Linux PAM模块[`pam_smtp`](https://github.com/robot-dot-win/pam_smtp)，
 使用SASL通过一个SMTP服务来实现用户认证。应特别注意：由于`svnserve`协议是非加密的，
-如果要通过互联网进行连接，则首先应通过某种方式（例如VPN）建立起加密通道。
+如果要通过互联网进行连接，则首先应通过某种方式（例如VPN、sslTunnel、Stunnel等）建立起加密隧道。
 
 下列步骤需要系统管理员来操作：
 
